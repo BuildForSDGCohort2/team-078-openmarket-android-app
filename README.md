@@ -3,13 +3,14 @@ OpenMarket is a platform that connects buyers and sellers in such a way that rec
 
 These platforms will make it easy for sellers  to sell and advertise to their customers easily while the buyer will be able to buy with ease.
 
-Getting started
----------------
+## Getting started
 
 1. Download the project by cloning this repository or downloading an archived
-  snapshot. (See Installation)
+   snapshot. (See Installation)
+
 2. In Android Studio, click the "Open an existing Android Studio project" or
-  "Import Project" option.
+   "Import Project" option.
+
 3. Select the `team-078-openmarket-android-app` directory that you downloaded with this repository.
 
 ## Installation
