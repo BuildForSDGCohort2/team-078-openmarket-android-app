@@ -2,6 +2,7 @@ package com.buildforsdg.openmarket.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -25,9 +26,19 @@ class MainActivity : AppCompatActivity() {
             ), null
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
+        toolbarVisibilityManager()
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    private fun toolbarVisibilityManager() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.loginFragment -> toolbar?.visibility = View.GONE
+                else -> toolbar?.visibility = View.VISIBLE
+            }
+        }
     }
 }
