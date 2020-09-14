@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     private fun toolbarVisibilityManager() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.loginFragment -> toolbar.makeGone()
+                R.id.loginFragment, R.id.registerFragment -> toolbar.makeGone()
                 else -> toolbar.makeVisible()
             }
         }
