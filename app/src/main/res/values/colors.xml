@@ -6,5 +6,11 @@
 
     <color name="colorTextPrimary">#9098B1</color>
     <color name="colorTextSecondary">#223263</color>
+    <color name="colorTextInputLayoutBorder">#EBF0FF</color>
+    <color name="colorEditTextHint">#969393</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorPrimaryButton">#40BFFF</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color">@color/colorTextInputLayoutBorder</color>
 
 </resources>

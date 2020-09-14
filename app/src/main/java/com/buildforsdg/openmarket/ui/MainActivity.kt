@@ -2,12 +2,13 @@ package com.buildforsdg.openmarket.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.buildforsdg.openmarket.R
+import com.buildforsdg.openmarket.extension.makeGone
+import com.buildforsdg.openmarket.extension.makeVisible
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,8 +37,8 @@ class MainActivity : AppCompatActivity() {
     private fun toolbarVisibilityManager() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.loginFragment -> toolbar?.visibility = View.GONE
-                else -> toolbar?.visibility = View.VISIBLE
+                R.id.loginFragment -> toolbar.makeGone()
+                else -> toolbar.makeVisible()
             }
         }
     }
