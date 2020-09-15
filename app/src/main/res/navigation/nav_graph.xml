@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.buildforsdg.openmarket.ui.auth.LoginFragment"
+        android:name="com.buildforsdg.openmarket.ui.auth.login.LoginFragment"
         android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
         <action

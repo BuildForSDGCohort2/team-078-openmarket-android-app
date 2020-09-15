@@ -1,4 +1,4 @@
-package com.buildforsdg.openmarket.ui.auth
+package com.buildforsdg.openmarket.ui.auth.login
 
 import androidx.lifecycle.ViewModel
 

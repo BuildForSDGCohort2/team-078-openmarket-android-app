@@ -4,13 +4,8 @@ import androidx.lifecycle.*
 import com.buildforsdg.openmarket.extension.toErrorMessage
 import com.buildforsdg.openmarket.ui.auth.model.RegisterRequest
 import com.buildforsdg.openmarket.ui.utils.EventUtils
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
-@ExperimentalCoroutinesApi
 class RegisterViewModel(private val repository: RegisterRepository) : ViewModel() {
 
     private val _progress = MutableLiveData<EventUtils<Boolean>>()
