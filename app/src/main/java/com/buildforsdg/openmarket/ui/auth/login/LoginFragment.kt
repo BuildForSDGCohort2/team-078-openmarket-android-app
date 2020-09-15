@@ -1,17 +1,18 @@
 package com.buildforsdg.openmarket.ui.auth.login
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.buildforsdg.openmarket.R
 import com.buildforsdg.openmarket.extension.safelyNavigateTo
+import com.buildforsdg.openmarket.ui.auth.model.LoginRequest
+import com.buildforsdg.openmarket.ui.base.BaseFragment
+import com.buildforsdg.openmarket.ui.utils.EventObserver
 import kotlinx.android.synthetic.main.login_fragment.*
 
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment() {
 
     private lateinit var viewModel: LoginViewModel
 
@@ -25,16 +26,33 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tvSignUp.setOnClickListener { displayRegistrationScreen() }
+        mbSignIn.setOnClickListener { loginViaEmail() }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
-        // TODO: Use the ViewModel
+        with(viewModel) {
+            progress.observe(viewLifecycleOwner, EventObserver {
+                toggleBlockingProgress(it)
+            })
+
+            error.observe(viewLifecycleOwner, EventObserver {
+                showErrorDialog(it)
+            })
+
+            loginStatus.observe(viewLifecycleOwner,EventObserver {
+                showSuccessDialog(it)
+                // Navigate to home screen
+            })
+        }
     }
 
-    private fun displayRegistrationScreen(){
+    private fun displayRegistrationScreen() {
         findNavController().safelyNavigateTo(R.id.action_loginFragment_to_registerFragment)
     }
 
+    private fun loginViaEmail(){
+        val request = LoginRequest(tieEmail.text.toString(),tiePassword.text.toString())
+        viewModel.signInViaEmail(request)
+    }
 }
