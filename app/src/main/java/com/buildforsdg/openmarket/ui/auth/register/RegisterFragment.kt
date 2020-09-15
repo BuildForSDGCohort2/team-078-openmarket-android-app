@@ -1,19 +1,21 @@
 package com.buildforsdg.openmarket.ui.auth.register
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.buildforsdg.openmarket.R
-import com.buildforsdg.openmarket.extension.safelyNavigateTo
+import com.buildforsdg.openmarket.ui.auth.model.RegisterRequest
+import com.buildforsdg.openmarket.ui.base.BaseFragment
+import com.buildforsdg.openmarket.ui.utils.EventObserver
+import com.buildforsdg.openmarket.ui.utils.InjectorUtils
 import kotlinx.android.synthetic.main.register_fragment.*
 
-class RegisterFragment : Fragment() {
+class RegisterFragment : BaseFragment() {
 
-    private lateinit var viewModel: RegisterViewModel
+    private val viewModel by viewModels<RegisterViewModel>{InjectorUtils.provideRegisterViewModelFactory()}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,17 +27,35 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tvSignIn.setOnClickListener { displayLoginScreen() }
+        mbSignUp.setOnClickListener { signUpUser() }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
-        // TODO: Use the ViewModel
+        with(viewModel){
+            progress.observe(viewLifecycleOwner, EventObserver{
+                toggleBlockingProgress(it)
+            })
+
+            error.observe(viewLifecycleOwner, EventObserver {
+                showErrorDialog(it)
+            })
+
+            registrationStatus.observe(viewLifecycleOwner, EventObserver{
+                showSuccessDialog(it)
+            })
+        }
     }
 
     private fun displayLoginScreen(){
-//        findNavController().safelyNavigateTo(R.id.action_registerFragment_to_loginFragment)
         findNavController().popBackStack(R.id.loginFragment,false)
+    }
+
+    private fun signUpUser(){
+        val request = RegisterRequest(tieEmail.text.toString(),
+            tieFirstName.text.toString(),tieLastName.text.toString(),tiePassword.text.toString()
+        )
+        viewModel.register(request)
     }
 
 }

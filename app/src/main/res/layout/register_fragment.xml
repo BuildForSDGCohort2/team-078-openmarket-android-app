@@ -67,7 +67,40 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:fontFamily="@font/poppins_regular"
-            android:hint="@string/full_name"
+            android:hint="@string/first_name"
+            android:textSize="12sp"
+            android:inputType="textPersonName"
+            android:textColor="@color/colorTextPrimary"
+            android:textColorHint="@color/colorEditTextHint" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLastName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/poppins_regular"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:boxStrokeColor="@color/colorTextInputLayoutBorder"
+        app:boxStrokeWidth="1dp"
+        app:hintAnimationEnabled="false"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilFirstName"
+        app:startIconDrawable="@drawable/ic_user"
+        app:startIconTint="@null">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tieLastName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/last_name"
             android:textSize="12sp"
             android:inputType="textPersonName"
             android:textColor="@color/colorTextPrimary"
@@ -90,7 +123,7 @@
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilFirstName"
+        app:layout_constraintTop_toBottomOf="@+id/tilLastName"
         app:startIconDrawable="@drawable/ic_email"
         app:startIconTint="@null">
 
@@ -101,6 +134,7 @@
             android:fontFamily="@font/poppins_regular"
             android:hint="@string/email"
             android:textSize="12sp"
+            android:textColor="@color/colorTextPrimary"
             android:inputType="textEmailAddress"
             android:textColorHint="@color/colorEditTextHint" />
 
@@ -123,7 +157,9 @@
         app:layout_constraintStart_toStartOf="@+id/tilEmail"
         app:layout_constraintTop_toBottomOf="@+id/tilEmail"
         app:startIconDrawable="@drawable/ic_lock"
-        app:startIconTint="@null">
+        app:startIconTint="@color/colorTextPrimary"
+        app:passwordToggleTint="@color/colorTextPrimary"
+        app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiePassword"
@@ -132,43 +168,45 @@
             android:textSize="12sp"
             android:fontFamily="@font/poppins_regular"
             android:hint="@string/password"
+            android:background="@null"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
+            android:textColor="@color/colorTextPrimary"
             android:textColorHint="@color/colorEditTextHint" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilConfirmPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/poppins_regular"
-        app:boxBackgroundColor="@android:color/transparent"
-        app:boxStrokeColor="@color/colorTextInputLayoutBorder"
-        app:boxStrokeWidth="1dp"
-        app:endIconTint="@color/colorEditTextHint"
-        app:hintAnimationEnabled="false"
-        app:hintEnabled="false"
-        app:layout_constraintEnd_toEndOf="@+id/tilEmail"
-        app:layout_constraintStart_toStartOf="@+id/tilEmail"
-        app:layout_constraintTop_toBottomOf="@+id/tilPassword"
-        app:startIconDrawable="@drawable/ic_lock"
-        app:startIconTint="@null">
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/tilConfirmPassword"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/poppins_regular"-->
+<!--        app:boxBackgroundColor="@android:color/transparent"-->
+<!--        app:boxStrokeColor="@color/colorTextInputLayoutBorder"-->
+<!--        app:boxStrokeWidth="1dp"-->
+<!--        app:endIconTint="@color/colorEditTextHint"-->
+<!--        app:hintAnimationEnabled="false"-->
+<!--        app:hintEnabled="false"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/tilEmail"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/tilEmail"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tilPassword"-->
+<!--        app:startIconDrawable="@drawable/ic_lock"-->
+<!--        app:startIconTint="@null">-->
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tieConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textSize="12sp"
-            android:fontFamily="@font/poppins_regular"
-            android:hint="@string/confirm_password"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword"
-            android:textColorHint="@color/colorEditTextHint" />
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:id="@+id/tieConfirmPassword"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:textSize="12sp"-->
+<!--            android:fontFamily="@font/poppins_regular"-->
+<!--            android:hint="@string/confirm_password"-->
+<!--            android:imeOptions="actionDone"-->
+<!--            android:inputType="textPassword"-->
+<!--            android:textColorHint="@color/colorEditTextHint" />-->
 
-    </com.google.android.material.textfield.TextInputLayout>
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/mbSignUp"
@@ -182,9 +220,9 @@
         android:textSize="16sp"
         android:fontFamily="@font/poppins_bold"
         app:backgroundTint="@color/colorPrimaryButton"
-        app:layout_constraintEnd_toEndOf="@+id/tilConfirmPassword"
-        app:layout_constraintStart_toStartOf="@+id/tilConfirmPassword"
-        app:layout_constraintTop_toBottomOf="@+id/tilConfirmPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/tilPassword"
+        app:layout_constraintStart_toStartOf="@+id/tilPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
 
     <TextView
         android:id="@+id/textView20"

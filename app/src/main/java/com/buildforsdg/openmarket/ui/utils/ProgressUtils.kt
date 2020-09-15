@@ -1,10 +1,15 @@
 package com.buildforsdg.openmarket.ui.utils
 
 import android.content.Context
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
+import android.os.Build
 import android.view.View
 import android.widget.ProgressBar
 import androidx.core.content.ContextCompat
 import com.buildforsdg.openmarket.R
+import com.buildforsdg.openmarket.extension.makeGone
+import com.buildforsdg.openmarket.extension.makeVisible
 
 
 /**
@@ -34,28 +39,30 @@ class ProgressUtils {
 
     fun showProgress(context: Context) {
         mDialog?.let {
-            if (it.isShown) {
-                return
-            }
+            if (it.isShown) { return }
         }
 
-        mDialog = ProgressBar(context, null, android.R.style.Widget_Material_ProgressBar_Large)
+        mDialog = ProgressBar(context)
         mDialog?.let {
-            it.indeterminateDrawable.setColorFilter(
-                ContextCompat.getColor(
-                    context,
-                    R.color.colorAccent
-                ), android.graphics.PorterDuff.Mode.SRC_IN
-            )
-
-            it.visibility = View.VISIBLE
+            it.apply {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    indeterminateDrawable.colorFilter = BlendModeColorFilter(ContextCompat.getColor(
+                        context, R.color.colorAccent), BlendMode.SRC_IN)
+                } else {
+                    indeterminateDrawable.setColorFilter(ContextCompat.getColor(
+                            context, R.color.colorAccent
+                        ), android.graphics.PorterDuff.Mode.SRC_IN
+                    )
+                }
+                makeVisible()
+            }
         }
     }
 
     fun hideProgress() {
         mDialog?.let {
             if (it.isShown) {
-                it.visibility = View.GONE
+                it.makeGone()
                 mDialog = null
             }
         }

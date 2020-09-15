@@ -11,8 +11,11 @@
     <string name="sign_up">Register</string>
     <string name="let_get_started">Let’s Get Started</string>
     <string name="create_a_new_account">Create a new account</string>
-    <string name="full_name">Full Name</string>
+    <string name="first_name">First Name</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="register">Sign Up</string>
     <string name="have_an_account">Have an account</string>
+    <string name="title_api_error">Something Went Wrong</string>
+    <string name="title_api_success">Congratulations</string>
+    <string name="last_name">Last Name</string>
 </resources>
