@@ -4,17 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.buildforsdg.openmarket.R
 import com.buildforsdg.openmarket.extension.safelyNavigateTo
 import com.buildforsdg.openmarket.ui.auth.model.LoginRequest
 import com.buildforsdg.openmarket.ui.base.BaseFragment
 import com.buildforsdg.openmarket.ui.utils.EventObserver
+import com.buildforsdg.openmarket.ui.utils.InjectorUtils
 import kotlinx.android.synthetic.main.login_fragment.*
 
 class LoginFragment : BaseFragment() {
 
-    private lateinit var viewModel: LoginViewModel
+    private val viewModel by viewModels<LoginViewModel> {
+        InjectorUtils.provideLoginViewModelFactory()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

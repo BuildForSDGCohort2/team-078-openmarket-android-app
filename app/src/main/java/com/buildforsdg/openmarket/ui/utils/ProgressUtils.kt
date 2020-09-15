@@ -1,12 +1,19 @@
 package com.buildforsdg.openmarket.ui.utils
 
+import android.app.Dialog
 import android.content.Context
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
 import android.os.Build
 import android.view.View
+import android.view.ViewGroup
+import android.view.Window
+import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.buildforsdg.openmarket.R
 import com.buildforsdg.openmarket.extension.makeGone
 import com.buildforsdg.openmarket.extension.makeVisible
@@ -18,7 +25,7 @@ import com.buildforsdg.openmarket.extension.makeVisible
  */
 
 class ProgressUtils {
-    private var mDialog: ProgressBar? = null
+    private var mDialog: Dialog? = null
 
     companion object {
         @Volatile
@@ -39,30 +46,24 @@ class ProgressUtils {
 
     fun showProgress(context: Context) {
         mDialog?.let {
-            if (it.isShown) { return }
+            if (it.isShowing) { return }
         }
 
-        mDialog = ProgressBar(context)
+        mDialog = Dialog(context)
         mDialog?.let {
-            it.apply {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    indeterminateDrawable.colorFilter = BlendModeColorFilter(ContextCompat.getColor(
-                        context, R.color.colorAccent), BlendMode.SRC_IN)
-                } else {
-                    indeterminateDrawable.setColorFilter(ContextCompat.getColor(
-                            context, R.color.colorAccent
-                        ), android.graphics.PorterDuff.Mode.SRC_IN
-                    )
-                }
-                makeVisible()
-            }
+            it.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            it.setContentView(R.layout.dialog_progress)
+
+            it.setCancelable(false)
+            it.setCanceledOnTouchOutside(false)
+            it.show()
         }
     }
 
     fun hideProgress() {
         mDialog?.let {
-            if (it.isShown) {
-                it.makeGone()
+            if (it.isShowing) {
+                it.dismiss()
                 mDialog = null
             }
         }
