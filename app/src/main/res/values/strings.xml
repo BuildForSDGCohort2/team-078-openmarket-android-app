@@ -15,4 +15,9 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="register">Sign Up</string>
     <string name="have_an_account">Have an account</string>
+    <string name="payment">Payment</string>
+    <string name="address">Address</string>
+    <string name="order">Order</string>
+    <string name="profile">Profile</string>
+    <string name="account">Account</string>
 </resources>

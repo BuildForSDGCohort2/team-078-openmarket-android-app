@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="24dp"
-        android:text="Account"
+        android:text="@string/account"
         android:textColor="@color/colorTextSecondary"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -23,8 +23,9 @@
     <View
         android:id="@+id/view2"
         android:layout_width="wrap_content"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_marginTop="@dimen/line_height"
+        android:background="@color/colorEditTextHint"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -39,12 +40,12 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/account_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="40dp"
-        android:text="Profile"
+        android:text="@string/profile"
         android:textColor="@color/colorTextSecondary"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -62,17 +63,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/account_order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="36dp"
-        android:text="Order"
+        android:text="@string/order"
         android:textColor="@color/colorTextSecondary"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/account_profile" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -85,17 +86,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/account_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="36dp"
-        android:text="Address"
+        android:text="@string/address"
         android:textColor="@color/colorTextSecondary"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/account_order" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -108,17 +109,17 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/account_payment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="36dp"
-        android:text="TextView"
+        android:text="@string/payment"
         android:textColor="@color/colorTextSecondary"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/account_address" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
