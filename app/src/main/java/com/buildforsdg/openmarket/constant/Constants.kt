@@ -11,4 +11,6 @@ object Constants{
     const val SOCKET_TIMEOUT_ERROR = "Connection timed out, please check your network connection and try again"
     const val CLIENT_ERROR = "An error occurred while processing your request, please try again"
     const val SERVER_ERROR = "Unable to reach the server at the moment, please try again later"
+    const val RC_SIGN_IN: Int = 1414
+
 }
