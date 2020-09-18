@@ -21,7 +21,7 @@
         android:title="@string/offer" />
 
     <item
-        android:id="@+id/accountFragment"
+        android:id="@+id/profileFragment"
         android:icon="@drawable/ic_user"
         android:title="@string/account" />
 </menu>
