@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">OpenMarket</string>
+    <string name="welcome_to_open_market">Welcome to OpenMarket</string>
+    <string name="sign_in_to_continue">Sign in to continue</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Sign In</string>
+    <string name="continue_with_google">Login with Google</string>
+    <string name="continue_with_facebook">Login with facebook</string>
+    <string name="no_account_yet">Don’t have an account?</string>
+    <string name="sign_up">Register</string>
+    <string name="let_get_started">Let’s Get Started</string>
+    <string name="create_a_new_account">Create a new account</string>
+    <string name="first_name">First Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Sign Up</string>
+    <string name="have_an_account">Have an account</string>
+    <string name="title_api_error">Something Went Wrong</string>
+    <string name="title_api_success">Congratulations</string>
+    <string name="last_name">Last Name</string>
 </resources>
