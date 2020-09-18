@@ -18,4 +18,9 @@
     <string name="title_api_error">Something Went Wrong</string>
     <string name="title_api_success">Congratulations</string>
     <string name="last_name">Last Name</string>
+    <string name="explore">Explore</string>
+    <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="offer">Offer</string>
+    <string name="account">Account</string>
 </resources>

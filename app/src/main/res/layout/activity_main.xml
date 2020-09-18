@@ -23,4 +23,13 @@
 
     <include layout="@layout/content_main" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/BottomNavigationTheme"
+        android:layout_gravity="bottom"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom_navigation" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

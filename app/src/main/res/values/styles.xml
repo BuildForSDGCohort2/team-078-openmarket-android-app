@@ -33,4 +33,19 @@
         <item name="android:actionMenuTextColor">@color/colorTextPrimary</item>
     </style>
 
+    <style name="BottomNavigationTheme" parent="AppTheme">
+        <item name="itemTextAppearanceActive">@style/BottomNavView.ActiveState</item>
+        <item name="itemTextAppearanceInactive">@style/BottomNavView.InactiveState</item>
+    </style>
+
+    <style name="BottomNavView.ActiveState" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="BottomNavView.InactiveState" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
 </resources>
