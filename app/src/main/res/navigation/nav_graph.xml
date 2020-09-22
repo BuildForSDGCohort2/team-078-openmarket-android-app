@@ -55,4 +55,9 @@
         android:name="com.buildforsdg.openmarket.ui.profile.ProfileFragment"
         android:label="profile_fragment"
         tools:layout="@layout/profile_fragment" />
+    <fragment
+        android:id="@+id/resendEmailFragment"
+        android:name="com.buildforsdg.openmarket.ui.auth.resendmail.ResendEmailFragment"
+        android:label="resend_email_fragment"
+        tools:layout="@layout/resend_email_fragment" />
 </navigation>

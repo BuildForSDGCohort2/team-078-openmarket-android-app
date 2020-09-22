@@ -1,18 +1,20 @@
 package com.buildforsdg.openmarket.ui.auth.resendmail
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.buildforsdg.openmarket.R
 import com.buildforsdg.openmarket.ui.base.BaseFragment
 import com.buildforsdg.openmarket.ui.utils.EventObserver
+import com.buildforsdg.openmarket.ui.utils.InjectorUtils
 
 class ResendEmailFragment : BaseFragment() {
 
-    private lateinit var viewModel: ResendEmailViewModel
+    private val viewModel by viewModels<ResendEmailViewModel> {
+        InjectorUtils.provideResendEmailViewModelFactory()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,7 +25,7 @@ class ResendEmailFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        with(viewModel){
+        with(viewModel) {
             progress.observe(viewLifecycleOwner, EventObserver {
                 toggleBlockingProgress(it)
             })
@@ -32,8 +34,8 @@ class ResendEmailFragment : BaseFragment() {
                 showErrorDialog(it)
             })
 
-            linkStatus.observe(viewLifecycleOwner, EventObserver{
-                showAlertDialog(it,"Success", shouldPopStack = true)
+            linkStatus.observe(viewLifecycleOwner, EventObserver {
+                showAlertDialog(it, "Success", shouldPopStack = true)
             })
         }
     }
