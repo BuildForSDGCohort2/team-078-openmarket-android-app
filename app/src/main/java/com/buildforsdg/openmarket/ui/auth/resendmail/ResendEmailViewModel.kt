@@ -17,7 +17,7 @@ class ResendEmailViewModel(private val repository: LoginRepository) : ViewModel(
     val error : LiveData<EventUtils<String>> = _error
 
     private val _linkStatus = MutableLiveData<EventUtils<String>>()
-    val linkStatus : LiveData<EventUtils<String>> = _error
+    val linkStatus : LiveData<EventUtils<String>> = _linkStatus
 
 
     fun resendLinkTo(emailAddress : String){

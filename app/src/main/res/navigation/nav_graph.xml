@@ -16,48 +16,42 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.buildforsdg.openmarket.ui.auth.login.LoginFragment"
-        android:label="login_fragment"
         tools:layout="@layout/login_fragment" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.buildforsdg.openmarket.ui.auth.register.RegisterFragment"
-        android:label="register_fragment"
         tools:layout="@layout/register_fragment" />
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.buildforsdg.openmarket.ui.home.HomeFragment"
-        android:label="home_fragment"
         tools:layout="@layout/home_fragment" />
     <fragment
         android:id="@+id/exploreFragment"
         android:name="com.buildforsdg.openmarket.ui.explore.ExploreFragment"
-        android:label="explore_fragment"
         tools:layout="@layout/explore_fragment" />
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.buildforsdg.openmarket.ui.cart.CartFragment"
-        android:label="cart_fragment"
         tools:layout="@layout/cart_fragment" />
     <fragment
         android:id="@+id/offerFragment"
         android:name="com.buildforsdg.openmarket.ui.offer.OfferFragment"
-        android:label="offer_fragment"
         tools:layout="@layout/offer_fragment" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.buildforsdg.openmarket.ui.profile.ProfileFragment"
-        android:label="profile_fragment"
         tools:layout="@layout/profile_fragment" />
     <fragment
         android:id="@+id/resendEmailFragment"
         android:name="com.buildforsdg.openmarket.ui.auth.resendmail.ResendEmailFragment"
-        android:label="resend_email_fragment"
         tools:layout="@layout/resend_email_fragment" />
 </navigation>

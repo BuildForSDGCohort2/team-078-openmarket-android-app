@@ -87,7 +87,6 @@ class LoginFragment : BaseFragment() {
                         showAlertDialog(getString(R.string.contact_admin),"Account Locked")
                     }
                     else -> {
-//                        showAlertDialog("i'm here", "mumu got here")
                         findNavController().navigate(R.id.resendEmailFragment)
                     }
                 }

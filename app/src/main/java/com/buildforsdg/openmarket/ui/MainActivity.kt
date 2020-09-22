@@ -41,7 +41,8 @@ class MainActivity : AppCompatActivity() {
     private fun toolbarVisibilityManager() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.loginFragment, R.id.registerFragment -> {
+                R.id.loginFragment, R.id.registerFragment,
+                R.id.resendEmailFragment -> {
                     toolbar.makeGone()
                     bottomNavView.makeGone()
                 }
