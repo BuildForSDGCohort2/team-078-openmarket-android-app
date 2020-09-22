@@ -15,4 +15,8 @@ class LoginRepository(private val service : LoginService){
     suspend fun googleAuth(request: GoogleAuthRequest) : OpenMarketApiResponse<String>{
         return service.googleAuth(request)
     }
+
+    suspend fun resendVerificationLink(email : String): OpenMarketApiResponse<String>{
+        return service.resendVerificationTo(email)
+    }
 }
