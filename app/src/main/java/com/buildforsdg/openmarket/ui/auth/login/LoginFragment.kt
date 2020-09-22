@@ -43,6 +43,7 @@ class LoginFragment : BaseFragment() {
         val account = GoogleSignIn.getLastSignedInAccount(requireContext())
         account?.let {
             // navigate to home screen
+            showHomeScreen()
         }
 
     }
@@ -76,14 +77,30 @@ class LoginFragment : BaseFragment() {
             })
 
             loginStatus.observe(viewLifecycleOwner,EventObserver {
-                showSuccessDialog(it)
-                // Navigate to home screen
+                when {
+                    it.canLogin -> {
+                        // save user object and token
+                        //it.user it.auth_token
+                        showHomeScreen()
+                    }
+                    it.isLockedOut -> {
+                        showAlertDialog(getString(R.string.contact_admin),"Account Locked")
+                    }
+                    else -> {
+                        // email verification required
+                    }
+                }
             })
 
             googleAuthHandshake.observe(viewLifecycleOwner, EventObserver{
                 // Navigate to home screen
+                showHomeScreen()
             })
         }
+    }
+
+    private fun showHomeScreen(){
+        findNavController().safelyNavigateTo(R.id.action_loginFragment_to_homeFragment)
     }
 
     private fun displayRegistrationScreen() {

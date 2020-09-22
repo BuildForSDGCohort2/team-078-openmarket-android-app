@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.buildforsdg.openmarket.extension.toErrorMessage
 import com.buildforsdg.openmarket.ui.auth.model.GoogleAuthRequest
+import com.buildforsdg.openmarket.ui.auth.model.LoginData
 import com.buildforsdg.openmarket.ui.auth.model.LoginRequest
 import com.buildforsdg.openmarket.ui.utils.EventUtils
 import kotlinx.coroutines.launch
@@ -17,8 +18,8 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
     private val _error = MutableLiveData<EventUtils<String>>()
     val error : LiveData<EventUtils<String>> = _error
 
-    private val _loginStatus =  MutableLiveData<EventUtils<String>>()
-    val loginStatus : LiveData<EventUtils<String>> = _loginStatus
+    private val _loginStatus =  MutableLiveData<EventUtils<LoginData>>()
+    val loginStatus : LiveData<EventUtils<LoginData>> = _loginStatus
 
     private val _googleAuthHandshake =  MutableLiveData<EventUtils<String>>()
     val googleAuthHandshake : LiveData<EventUtils<String>> = _googleAuthHandshake
@@ -28,7 +29,7 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
             _progress.value = EventUtils(true)
             try {
                 val response = repository.userLogin(request)
-                response.status?.let {
+                response.data?.let {
                     _loginStatus.value = EventUtils(it)
                 }
             }catch (ex: Exception){
