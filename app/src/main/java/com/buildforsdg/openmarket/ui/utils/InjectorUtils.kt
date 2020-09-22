@@ -8,6 +8,7 @@ import com.buildforsdg.openmarket.ui.auth.login.LoginRepository
 import com.buildforsdg.openmarket.ui.auth.login.LoginViewModel
 import com.buildforsdg.openmarket.ui.auth.register.RegisterRepository
 import com.buildforsdg.openmarket.ui.auth.register.RegisterViewModel
+import com.buildforsdg.openmarket.ui.auth.resendmail.ResendEmailViewModel
 import com.buildforsdg.openmarket.viewmodel.createFactory
 
 /**
@@ -34,6 +35,10 @@ object InjectorUtils {
 
     fun provideLoginViewModelFactory(): ViewModelProvider.Factory {
         return LoginViewModel(provideLoginRepository()).createFactory()
+    }
+
+    fun provideResendEmailViewModelFactory(): ViewModelProvider.Factory {
+        return ResendEmailViewModel(provideLoginRepository()).createFactory()
     }
 
 }

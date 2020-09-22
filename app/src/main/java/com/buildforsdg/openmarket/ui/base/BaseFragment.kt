@@ -2,6 +2,7 @@ package com.buildforsdg.openmarket.ui.base
 
 import android.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.buildforsdg.openmarket.R
 import com.buildforsdg.openmarket.ui.utils.ProgressUtils
 
@@ -36,11 +37,17 @@ abstract class BaseFragment : Fragment(){
         builder.create().show()
     }
 
-    fun showAlertDialog(message: String, title: String){
+    fun showAlertDialog(message: String, title: String, shouldPopStack: Boolean = false){
         val builder = AlertDialog.Builder(requireContext())
         builder.setTitle(title)
         builder.setMessage(message)
-        builder.setPositiveButton("OK", null)
+        builder.setCancelable(false)
+        builder.setPositiveButton("OK") { dialogInterface, _ ->
+            dialogInterface.dismiss()
+            if(shouldPopStack){
+                findNavController().popBackStack(R.id.loginFragment, false)
+            }
+        }
         builder.create().show()
     }
 

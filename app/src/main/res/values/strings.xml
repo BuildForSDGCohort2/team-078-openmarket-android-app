@@ -24,4 +24,6 @@
     <string name="offer">Offer</string>
     <string name="account">Account</string>
     <string name="contact_admin">Contact Admin to Unlock Your Account</string>
+    <string name="let_s_help_you_activate_your_account">Let\'s help you activate your account</string>
+    <string name="resend_link">Resend Link</string>
 </resources>
